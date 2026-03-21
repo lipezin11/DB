@@ -1,0 +1,28 @@
+{
+  "patterns": [
+    {
+      "id": "comp_medium_1",
+      "name": "Medium Marketing Shot",
+      "description": "Centered subject with slight offset for dynamic balance, ideal for text overlap.",
+      "prompt_injection": "Medium shot composition, subject positioned slightly off-center using rule of thirds, clean negative space maintaining visual balance for marketing text elements."
+    },
+    {
+      "id": "comp_close_up",
+      "name": "Close Up Detail",
+      "description": "Intimate focus on subject's face or product detail.",
+      "prompt_injection": "Tight close-up composition, strong subject focus, blurred foreground elements creating depth, balanced framing minimizing visual clutter."
+    },
+    {
+      "id": "comp_american",
+      "name": "American Shot",
+      "description": "Subject framed from mid-thigh up.",
+      "prompt_injection": "American shot composition (cowboy shot), showcasing subject interaction with environment while preserving negative space for layouts."
+    },
+    {
+      "id": "comp_vertical",
+      "name": "Vertical Story Layout",
+      "description": "9:16 optimized for stories and reels.",
+      "prompt_injection": "Vertical 9:16 composition optimized for mobile screens, centered subject, significant clean vertical negative space at top and bottom for UI elements and text."
+    }
+  ]
+}

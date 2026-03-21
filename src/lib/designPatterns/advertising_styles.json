@@ -1,0 +1,16 @@
+{
+  "patterns": [
+    {
+      "id": "style_hero",
+      "name": "Website Hero",
+      "description": "Perfect for landing page headers.",
+      "prompt_injection": "Premium website hero section aesthetic, sophisticated commercial design, polished textures, ultra-realistic digital photography."
+    },
+    {
+      "id": "style_social",
+      "name": "Social Media Ad",
+      "description": "Eye-catching, scroll-stopping visual.",
+      "prompt_injection": "High-conversion social media advertising aesthetic, scroll-stopping visual impact, bold styling, distinct foreground/background separation."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "patterns": [
+    {
+      "id": "color_vibrant",
+      "name": "Vibrant Energy",
+      "description": "High saturation, energetic tones for youthful or fitness brands.",
+      "prompt_injection": "High energy color palette, vibrant saturated tones contrasting with deep blacks, dynamic visual hierarchy."
+    },
+    {
+      "id": "color_monochrome",
+      "name": "Elegant Monochrome",
+      "description": "Luxurious, restrained color scheme.",
+      "prompt_injection": "Elegant monochromatic color palette, subtle tonal variations, premium luxury aesthetic, cohesive brand identity."
+    },
+    {
+      "id": "color_pastel",
+      "name": "Soft Minimalist",
+      "description": "Gentle, calm colors for health, wellness, or minimalist tech.",
+      "prompt_injection": "Soft minimalist color palette, gentle pastel tones, airy and inviting, low contrast environment colors emphasizing the subject."
+    }
+  ]
+}

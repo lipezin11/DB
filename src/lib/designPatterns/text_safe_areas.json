@@ -1,0 +1,22 @@
+{
+  "patterns": [
+    {
+      "id": "safe_left",
+      "name": "Left Text Safe",
+      "description": "Subject positioned on the right to leave clean space on the left.",
+      "prompt_injection": "Subject positioned to the right third, extensive clean negative space on the left side to accommodate headline, subheadline and call-to-action without interfering with the subject."
+    },
+    {
+      "id": "safe_center",
+      "name": "Bottom Center Safe",
+      "description": "Subject centered but elevated to leave text space at the bottom.",
+      "prompt_injection": "Subject centered and slightly elevated in frame, smooth gradient drop-off towards the bottom creating an unobstructed dark area for bold centered typography."
+    },
+    {
+      "id": "safe_right",
+      "name": "Right Text Safe",
+      "description": "Subject positioned on the left.",
+      "prompt_injection": "Subject positioned to the left third, vast clean negative space stretching across the right side, perfect for marketing copy overlay."
+    }
+  ]
+}

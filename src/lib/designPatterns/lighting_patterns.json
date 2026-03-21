@@ -1,0 +1,22 @@
+{
+  "patterns": [
+    {
+      "id": "light_cinematic",
+      "name": "Cinematic Advertising",
+      "description": "High contrast dramatic lighting used in professional branding.",
+      "prompt_injection": "Cinematic lighting setup, crisp rim light defining the silhouette against background, soft key light highlighting the subject, dramatic volumetric atmosphere."
+    },
+    {
+      "id": "light_studio",
+      "name": "Clean Studio",
+      "description": "Bright, even lighting for clear product/subject visibility.",
+      "prompt_injection": "Professional studio lighting setup, bright even illumination, softbox fill light, subtle shadows, clean premium aesthetic preserving natural skin tones."
+    },
+    {
+      "id": "light_neon",
+      "name": "Neon Tech Environment",
+      "description": "Cyberpunk or tech-focused neon lighting.",
+      "prompt_injection": "Vibrant neon lighting, contrasting cool and warm neon accents, specular highlights on surfaces, modern technological glow."
+    }
+  ]
+}
