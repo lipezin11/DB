@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Roboto_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
-
-const interFont = Inter({
+import { AppProvider } from "@/context/AppContext";
+const inter = Inter({
   subsets: ["latin"],
-});
-
-const robotoFont = Roboto_Mono({
-  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
@@ -15,15 +13,20 @@ export const metadata: Metadata = {
   description: "Visual SaaS for AI Marketing Generation",
 };
 
+import { Sidebar } from '@/components/layout/Sidebar';
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${interFont.className}`}>
-        {children}
+    <html lang="en">
+      <body className={`${inter.className} antialiased bg-[#050505]`}>
+        <AppProvider>
+          {children}
+          <Sidebar />
+        </AppProvider>
       </body>
     </html>
   );

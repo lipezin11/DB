@@ -1,78 +1,108 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-
-  /* Fonts */
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-sans: "Inter", "system-ui", "sans-serif";
 }
 
-:root {
-  --background: #000000;
-  --foreground: #f8fafc;
-  --primary: #3b82f6;
-  --primary-foreground: #ffffff;
-  --card: #09090b;
-  --card-foreground: #f8fafc;
-  --border: #27272a;
-  --input: #18181b;
-  --ring: #3b82f6;
-  --muted: #18181b;
-  --muted-foreground: #a1a1aa;
-  --accent: #1e1e24;
-  --accent-foreground: #f8fafc;
+@layer base {
+  body {
+    background-color: #050505;
+    color: white;
+  }
+  
+  ::selection {
+    background-color: rgba(168, 85, 247, 0.3);
+    color: white;
+  }
 }
 
-body {
-  background-color: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* ── UI DENSITY (DPI REDUCTION) ────────────────────────────── */
+* {
+  letter-spacing: -0.01em;
 }
 
-/* Custom Scrollbar for a premium feel */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+.custom-scrollbar::-webkit-scrollbar {
+  width: 3px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 85, 247, 0.3);
 }
 
-::-webkit-scrollbar-track {
-  background: var(--background);
+/* ── CUSTOM CLASSES ────────────────────────────────────────── */
+@layer components {
+  .panel-gradient {
+    background: #000;
+    border: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .input-elegant {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.06);
+    color: #fff;
+    font-size: 9px;
+    padding: 0.35rem 0.6rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .input-elegant:focus {
+    border-color: rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.01);
+  }
+
+  .selector-card {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.04);
+    color: #52525b;
+    font-size: 8px;
+    padding: 0.3rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .selector-card.active {
+    background: #fff;
+    border-color: #fff;
+    color: #000;
+    box-shadow: 0 0 15px rgba(255,255,255,0.08);
+  }
+
+  .btn-primary {
+    background: #fff;
+    color: #000;
+    font-weight: 900;
+    font-size: 10px;
+    padding: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .btn-primary:hover {
+    background: #e4e4e7;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+  }
+
+  .bg-brand-gradient {
+     background-image: linear-gradient(to bottom right, #7C3AED, #A855F7, #EC4899);
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--muted-foreground);
-}
-
-/* Utilities */
-@utility glass {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-@utility text-gradient {
-  background: linear-gradient(to right, #3b82f6, #a855f7, #ec4899);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
