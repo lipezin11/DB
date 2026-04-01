@@ -47,7 +47,7 @@ export default function AppsLayout({ children }: { children: React.ReactNode }) 
     if (pathname !== activeRoute && activeRoute !== '') {
       setActiveRoute(pathname);
       setIsNeuralScanning(true);
-      const timer = setTimeout(() => setIsNeuralScanning(false), 2000);
+      const timer = setTimeout(() => setIsNeuralScanning(false), 2400); // Surgical 2.4s scan
       return () => clearTimeout(timer);
     } else if (activeRoute === '') {
       setActiveRoute(pathname);
@@ -126,7 +126,7 @@ export default function AppsLayout({ children }: { children: React.ReactNode }) 
   return (
     <div className="flex flex-col h-screen bg-[#020202] text-zinc-300 font-sans selection:bg-[#a855f7] selection:text-white">
       
-      {/* CINEMATIC NEURAL PORTAL — FAILS-SAFE & PREMIUM */}
+      {/* CINEMATIC NEURAL PORTAL — MASTER INDUSTRIAL OVERHAUL */}
       <AnimatePresence>
         {(isNeuralScanning || isGeneratingGlobal) && (
           <motion.div 
@@ -134,62 +134,85 @@ export default function AppsLayout({ children }: { children: React.ReactNode }) 
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsNeuralScanning(false)}
-            className="fixed inset-0 z-[10000] bg-black/95 backdrop-blur-3xl flex items-center justify-center overflow-hidden cursor-pointer"
+            className="fixed inset-0 z-[10000] bg-[#020202] flex items-center justify-center overflow-hidden cursor-pointer"
           >
-             {/* THE NEURAL GRID */}
-             <div className="absolute inset-0 opacity-10 pointer-events-none">
-                <div className="absolute inset-0 bg-[linear-gradient(rgba(168,85,247,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(168,85,247,0.1)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
+             {/* THE HEXAGON MESH (MASTER OVERHAUL) */}
+             <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
+                <div className="absolute inset-0 bg-[radial-gradient(#a855f7_1px,transparent_1px)] bg-[size:30px_30px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(168,85,247,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(168,85,247,0.05)_1px,transparent_1px)] bg-[size:120px_120px]" />
              </div>
 
-             {/* DATA STREAM REINFORCEMENT */}
-             <div className="absolute inset-0 overflow-hidden opacity-20 flex justify-between px-10 pointer-events-none font-mono text-[8px] text-[#a855f7]">
-                {[...Array(6)].map((_, i) => (
-                   <div key={i} className="flex flex-col gap-4 animate-in slide-in-from-top duration-[5000ms] infinite">
-                      {Array.from({length: 40}).map((_, j) => (
-                         <span key={j} className="animate-pulse" style={{ animationDelay: `${j * 100}ms` }}>{Math.random().toString(36).substr(2, 4)}</span>
-                      ))}
-                   </div>
-                ))}
+             {/* CALIBRATION CORNERS */}
+             <div className="absolute inset-10 border border-white/[0.03] pointer-events-none">
+                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#a855f7]/40" />
+                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-[#a855f7]/40" />
+                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-[#a855f7]/40" />
+                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#a855f7]/40" />
              </div>
 
-             {/* THE SCANNING BLADE */}
+             {/* DYNAMIC CALIBRATION HUD */}
+             <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none">
+                <span className="text-[#a855f7] font-mono text-[7px] font-black uppercase tracking-[0.8em] animate-pulse">Neural Synchronization Status: 00.12% — OK</span>
+                <div className="flex gap-1">
+                   {[...Array(20)].map((_, i) => (
+                      <motion.div key={i} initial={{ opacity: 0 }} animate={{ opacity: [0, 1, 0.2] }} transition={{ repeat: Infinity, duration: 1, delay: i * 0.05 }} className="w-1 h-3 bg-[#a855f7]/20 rounded-full" />
+                   ))}
+                </div>
+             </div>
+
+             {/* THE SCANNING BLADE WITH GLOWING TRAIL */}
              <motion.div 
                 initial={{ top: '-10%' }}
                 animate={{ top: '110%' }}
-                transition={{ duration: 2, ease: "linear", repeat: Infinity }}
-                className="absolute left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#a855f7] to-transparent shadow-[0_0_20px_#a855f7] z-30"
-             />
+                transition={{ duration: 2.2, ease: "linear", repeat: Infinity }}
+                className="absolute left-0 w-full h-[60px] bg-gradient-to-b from-transparent via-[#a855f7]/10 to-transparent z-30 pointer-events-none"
+             >
+                <div className="absolute top-1/2 left-0 w-full h-[1px] bg-[#a855f7] shadow-[0_0_40px_10px_#a855f7]" />
+             </motion.div>
 
-             {/* CENTRAL CORE */}
-             <div className="flex flex-col items-center gap-12 relative z-50">
-                <div className="relative group">
-                   <div className="absolute inset-x-0 h-40 bg-[#a855f7]/10 blur-[100px] -top-20 animate-pulse" />
-                   <div className="w-24 h-24 rounded-full border border-white/5 flex items-center justify-center relative bg-black/50 overflow-hidden ring-1 ring-[#a855f7]/20">
-                      <div className="absolute inset-0 bg-gradient-to-b from-[#a855f7]/20 to-transparent animate-scan-up" />
-                      <Bot size={40} className="text-[#a855f7] relative z-10 drop-shadow-[0_0_10px_#a855f7]" />
-                      <div className="absolute inset-0 border border-[#a855f7]/20 rounded-full scale-150 animate-ping" />
+             {/* CENTRAL WORKSTATION UNIT */}
+             <div className="flex flex-col items-center gap-16 relative z-50">
+                <div className="relative isolate">
+                   <div className="absolute inset-[-40px] rounded-full bg-[#a855f7]/10 blur-[100px] animate-pulse" />
+                   <div className="w-32 h-32 rounded-[2.5rem] border border-white/5 flex items-center justify-center relative bg-[#050505] overflow-hidden ring-1 ring-[#a855f7]/20 shadow-[0_0_60px_-15px_rgba(168,85,247,0.3)]">
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#a855f7]/10 via-transparent to-transparent" />
+                      <Bot size={52} className="text-[#a855f7] relative z-10 drop-shadow-[0_0_20px_#a855f7]" />
+                      <motion.div 
+                         animate={{ rotate: 360 }}
+                         transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                         className="absolute inset-4 border border-dashed border-[#a855f7]/10 rounded-full" 
+                      />
                    </div>
                 </div>
 
-                <div className="text-center space-y-6">
-                   <div className="flex flex-col gap-2">
-                      <h2 className="text-white font-black italic uppercase tracking-[0.6em] text-[12px] md:text-[14px]">Nexus Injection Sequence</h2>
-                      <div className="h-[2px] w-48 bg-white/5 mx-auto rounded-full overflow-hidden relative border border-white/10">
+                <div className="text-center space-y-8 animate-in zoom-in-95 duration-700">
+                   <div className="flex flex-col gap-4">
+                      <h2 className="text-white font-black italic uppercase tracking-[1.25em] text-[14px]">Studio Injection Sequence</h2>
+                      <div className="h-[1px] w-64 bg-white/5 mx-auto rounded-full overflow-hidden relative border border-white/[0.02]">
                          <motion.div 
                            initial={{ left: '-100%' }}
-                           animate={{ left: '0%' }}
-                           transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 0.5 }}
+                           animate={{ left: '100%' }}
+                           transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
                            className="absolute inset-0 bg-gradient-to-r from-transparent via-[#a855f7] to-transparent" 
                          />
                       </div>
                    </div>
-                   <p className="text-zinc-500 font-extrabold uppercase tracking-[0.3em] text-[7px] max-w-sm mx-auto leading-loose px-4">
-                      {isGeneratingGlobal ? 'Broadcasting Creative DNA to Global Nexus...' : 'Surgical Protocol: Optimizing Neural Studio Architecture...'}
-                   </p>
+                   <div className="flex flex-col gap-2">
+                      <p className="text-[#a855f7] font-black uppercase tracking-[0.5em] text-[8px] animate-pulse">
+                         {isGeneratingGlobal ? 'Calibrating Global Creative Nexus' : 'Surgical Protocol: Creative DNA Extraction'}
+                      </p>
+                      <p className="text-zinc-600 font-extrabold uppercase tracking-[0.2em] text-[7px] max-w-sm mx-auto leading-loose px-10">
+                         Accessing Layered Studio Pipeline for Optimized Generation Fidelity...
+                      </p>
+                   </div>
                 </div>
                 
-                {/* EMERGENCY DISMISS (Subtle) */}
-                <span className="text-white/20 text-[6px] font-black uppercase tracking-widest mt-10 hover:text-white transition-all cursor-pointer">Click to Bypass Portal / DNA Forge</span>
+                {/* INTERACTIVE HUD OVERLAYS */}
+                <div className="absolute top-0 -right-40 text-[6px] font-mono text-[#a855f7]/20 space-y-1 hidden xl:block">
+                   <div>SYS_ARCH: 64-BIT</div>
+                   <div>API_LINK: GEMINI-2.0-FLASH-THINKING</div>
+                   <div>SEC_LAYER: v15.5.7_PATCHED</div>
+                </div>
              </div>
           </motion.div>
         )}
